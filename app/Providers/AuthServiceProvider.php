@@ -26,6 +26,11 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
+        Passport::tokensCan([
+            'edit' => 'can edit books available',
+            'create' => 'can add new books',
+            'delete' => 'can delete books',
+        ]);
         Passport::routes();
     }
 }

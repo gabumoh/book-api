@@ -88,7 +88,7 @@ class AuthController extends Controller
 	 * admin login API
 	 * @return \Illuminate\Http\Response
 	 */
-	public function adminlogin(Request $request)
+	public function adminLogin(Request $request)
 	{
 
 		$input = $request->all();
@@ -152,5 +152,5 @@ class AuthController extends Controller
 		return response()->json(['success' => $success], 200);
 
 	}
-	
+
 }

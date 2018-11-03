@@ -9,6 +9,12 @@ use Validator;
 
 class BookController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(['auth:api', 'scopes:edit,create,delete'])->except(['index', 'show']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -79,7 +85,7 @@ class BookController extends Controller
 
         $book->update($request->only(['name', 'description']));
 
-        return new BookResource($book)
+        return new BookResource($book);
     }
 
     /**
